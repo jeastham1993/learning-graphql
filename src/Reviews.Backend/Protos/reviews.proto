@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Reviews.Backend";
+
+package reviews;
+
+service ReviewManager {
+  rpc GetReviews (GetReviewRequest) returns (stream ReviewReply);
+}
+
+message GetReviewRequest {
+  string productId = 1;
+}
+
+message ReviewReply {
+  string contents = 1;
+  double stars = 2;
+}

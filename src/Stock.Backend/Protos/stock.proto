@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "Stock.Backend";
+
+package product;
+
+service StockManager {
+  rpc GetCurrentStockLevels (GetCurrentStockRequest) returns (StockLevelReply);
+}
+
+message GetCurrentStockRequest {
+  string productId = 1;
+}
+
+message StockLevelReply {
+  double freeStock = 1;
+  double reservedStock = 2;
+}
